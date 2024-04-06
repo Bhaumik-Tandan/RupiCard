@@ -22,10 +22,32 @@ function WelcomeMain() {
           <WelcomeLabel/>
           <WelcomeHighlight/>
           
-     </div> : <img
+     </div> : 
+     <div
+     style={{
+      display: "flex",
+      gap: "60px",
+      justifyContent:"space-between",
+      alignItems:"center",
+      height:"65vh",
+     }}
+     >
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "25px",
+      
+      }}>
+      <WelcomeLabel/>
+          <WelcomeHighlight/>
+        </div>
+     <img
             src="https://www.uni.cards/images/nx-wave/nx_wave_hero.png"
-            style={{ width: "250px", height: "250px"}}
-          />}
+            style={{ width: "400px", height: "400px"}}
+          />
+
+          </div>
+          }
     </div>
   )
 }
