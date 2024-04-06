@@ -1,13 +1,13 @@
 import { MobileProvider } from "./MobileContext";
+import AnimatedText from "./pages/AnimatedText";
 import FixedBottom from "./pages/FixedBottom";
 import Welcome from "./pages/Welcome";
 function App() {
   return (
     <MobileProvider>
-    <div className="App">
       <Welcome/>
       <FixedBottom/>
-    </div>
+      <AnimatedText/>
     </MobileProvider>
   );
 }
