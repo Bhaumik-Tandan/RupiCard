@@ -13,6 +13,13 @@ function MobilePhoneInput() {
     return number.length === 10 && number[0] !== "0";
   };
   const canApply = isPhoneNumberValid(phoneNumber) && isAgreed;
+  const buttonOnClick = () => {
+    if(!phoneNumber)
+      setBoxesVisible((prev)=>!prev)
+    else if(canApply)
+      alert("Applied successfully");
+    
+  };
 
   const InputButton = () =>
     phoneNumber && (
@@ -100,7 +107,7 @@ function MobilePhoneInput() {
           alignItems: 'center',
           zIndex: '1',
         }}
-        onClick={() => setBoxesVisible((prev)=>!prev)}
+        onClick={buttonOnClick}
         >
           Apply now
           <img src="https://www.uni.cards/images/right_arrow.svg" alt="right arrow" style={{height: '20px'}} />
