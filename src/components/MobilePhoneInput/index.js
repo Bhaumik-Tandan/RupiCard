@@ -7,10 +7,12 @@ function MobilePhoneInput() {
   const { mobile } = useMobile();
   const [boxesVisible, setBoxesVisible] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [isAgreed, setIsAgreed] = useState(false);
 
   const isPhoneNumberValid = (number) => {
     return number.length === 10 && number[0] !== "0";
   };
+  const canApply = isPhoneNumberValid(phoneNumber) && isAgreed;
 
   const InputButton = () =>
     phoneNumber && (
@@ -35,6 +37,7 @@ function MobilePhoneInput() {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
+        paddingBottom: '1rem',
       }}
     >
       <div style={{
@@ -87,14 +90,14 @@ function MobilePhoneInput() {
         <div style={{
           display: 'flex',
           justifyContent: "space-between",
-          background: "rgb(253, 239, 120)",
-          padding: '10px', // Adjust padding as necessary to align with the input height
+          background: canApply||!phoneNumber?"rgb(253, 239, 120)":"rgba(174, 171, 140)",
+          padding: '10px', 
           fontFamily: '"Matter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
           borderRadius: '10px',
           fontSize: '15px',
           width: '85vw',
-          height: '40px', // Explicit height set to match the input box
-          alignItems: 'center', // This ensures vertical alignment of the button contents,
+          height: '40px', 
+          alignItems: 'center',
           zIndex: '1',
         }}
         onClick={() => setBoxesVisible((prev)=>!prev)}
@@ -121,6 +124,8 @@ function MobilePhoneInput() {
             background: "transparent",
             border: "none",
           }}
+          checked={isAgreed}
+          onChange={(e) => setIsAgreed(e.target.checked)}
         />
         {AgreeText}
       </label>
