@@ -31,6 +31,9 @@ function PhoneNumberInput({ type }) {
         display: "flex",
         flexDirection: type == "header" ? "column" : "row",
         fontFamily: "Matter, sans-serif",
+        padding: type==="header"?"0":"0px 50px",
+        width: "90%",
+        justifyContent: "space-between"
       }}
     >
       <div
@@ -95,7 +98,7 @@ function PhoneNumberInput({ type }) {
           alignItems: "center",
           width: "300px",
           fontSize: "10px",
-            marginTop: type == "header" ? "25px" : "0"
+            marginTop: type == "header" ? "25px" : "0",
         }}
       >
         <input

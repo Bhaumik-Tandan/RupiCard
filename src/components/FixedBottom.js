@@ -1,10 +1,12 @@
 import React from 'react'
 import PhoneNumberInput from './PhoneNumberInput';
+import { useMobile } from '../MobileContext';
 
 function FixedBottom({style}) {
-  return (
+  const {mobile}=useMobile();
+  return !mobile && (
     <div style={style}>
-        <PhoneNumberInput/>
+        <PhoneNumberInput type="footer"/>
     </div>
   )
 }
