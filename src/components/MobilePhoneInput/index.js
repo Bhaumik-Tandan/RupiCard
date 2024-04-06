@@ -1,10 +1,29 @@
 import React,{useState} from 'react';
 import { useMobile } from '../../MobileContext';
 import AgreeText from '../../constants/AgreeText';
-
+import Cross from "../../icons/cross.svg";
+import Tick from "../../icons/tick.svg";
 function MobilePhoneInput() {
   const { mobile } = useMobile();
   const [boxesVisible, setBoxesVisible] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const isPhoneNumberValid = (number) => {
+    return number.length === 10 && number[0] !== "0";
+  };
+
+  const InputButton = () =>
+    phoneNumber && (
+      <img
+        src={isPhoneNumberValid(phoneNumber) ? Tick : Cross}
+        alt="icon"
+        style={{ height: "15px", width: "15px" }}
+        onClick={()=>{
+            if(!isPhoneNumberValid(phoneNumber))
+                setPhoneNumber("");
+        }}
+      />
+    );
   return mobile ? (
     <div
       style={{
@@ -36,29 +55,34 @@ function MobilePhoneInput() {
           borderWidth: '1px',
           borderStyle: 'solid',
           boxSizing: 'border-box',
-          zIndex: '-1',
           borderRadius: '10px',
           paddingBottom: '1rem',
           transform: boxesVisible ? 'scaleY(1)' : 'scaleY(0)',
           transformOrigin: 'bottom',
           transition: 'transform 0.2s ease-out',
           overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}>
           <input
             type="text"
-            maxLength="10"
-            placeholder="Enter phone number"
+            value={phoneNumber}
+          maxLength="10"
+          placeholder="Enter phone number"
+          onChange={(e) => setPhoneNumber(e.target.value)}
             style={{
               height: "40px", // Adjusted to match the button height
               fontSize: "15px",
               outline: "none",
               border: "none",
-              color: "white",
+              color: "#fdef78",
               backgroundColor: "black",
               width: "150px",
               paddingLeft: "5px",
             }}
           />
+          <InputButton/>
         </div>}
         <div style={{
           display: 'flex',
@@ -70,7 +94,8 @@ function MobilePhoneInput() {
           fontSize: '15px',
           width: '85vw',
           height: '40px', // Explicit height set to match the input box
-          alignItems: 'center', // This ensures vertical alignment of the button contents
+          alignItems: 'center', // This ensures vertical alignment of the button contents,
+          zIndex: '1',
         }}
         onClick={() => setBoxesVisible((prev)=>!prev)}
         >
