@@ -26,9 +26,9 @@ function MobilePhoneInput() {
         <div style={{
           position: 'relative',
           top: '2vh',
-          width: `calc(92vw)`,
+          width: `calc(88vw)`,
           background: "black",
-          padding: '1vh 1rem',
+          padding: '1vh 1vw',
           borderTopLeftRadius: '10px',
           borderTopRightRadius: '10px',
           borderColor: "rgb(253, 239, 120)",
@@ -44,7 +44,7 @@ function MobilePhoneInput() {
             maxLength="10"
             placeholder="Enter phone number"
             style={{
-              height: "35px",
+              height: "40px", // Adjusted to match the button height
               fontSize: "15px",
               outline: "none",
               border: "none",
@@ -59,24 +59,25 @@ function MobilePhoneInput() {
           display: 'flex',
           justifyContent: "space-between",
           background: "rgb(253, 239, 120)",
-          padding: '1rem',
+          padding: '10px', // Adjust padding as necessary to align with the input height
           fontFamily: '"Matter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
           borderRadius: '10px',
           fontSize: '15px',
-          width: '85vw'
+          width: '85vw',
+          height: '40px', // Explicit height set to match the input box
+          alignItems: 'center', // This ensures vertical alignment of the button contents
         }}>
           Apply now
-          <img src="https://www.uni.cards/images/right_arrow.svg" alt="right arrow" />
+          <img src="https://www.uni.cards/images/right_arrow.svg" alt="right arrow" style={{height: '20px'}} />
         </div>
       </div>
       <label
         style={{
           display: "flex",
-          alignItems: "center", // Corrected alignment
           width: "300px",
           fontSize: "10px",
           color: "white",
-          margin: "1rem",
+          margin: "1rem 2rem",
         }}
       >
         <input
@@ -94,3 +95,4 @@ function MobilePhoneInput() {
 }
 
 export default MobilePhoneInput;
+
