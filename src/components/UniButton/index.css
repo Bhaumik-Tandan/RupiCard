@@ -1,0 +1,16 @@
+.uni-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    height: 40px;
+    width: 140px;
+  }
+  
+  .uni-button:hover {
+    background-color: rgb(26, 32, 44);
+    color: #7deddd;
+  }
+  

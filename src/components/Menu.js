@@ -9,7 +9,7 @@ function Menu() {
         backgroundColor: COLORS.BUTTON,
         position: "absolute",
         left: 0,
-        padding: "20px",
+        padding: "15px",
         color: "white",
         display: "flex",
         justifyContent: "space-between",
