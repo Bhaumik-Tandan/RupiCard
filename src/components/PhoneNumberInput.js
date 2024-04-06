@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Cross from "../icons/cross.svg";
 import Tick from "../icons/tick.svg";
-
+import AgreeText from "../constants/AgreeText";
 function PhoneNumberInput({ type }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isAgreed, setIsAgreed] = useState(false);
@@ -111,8 +111,7 @@ function PhoneNumberInput({ type }) {
         
          }}
         />
-        You agree to be contacted by Uni Cards over Call, SMS, Email or WhatsApp
-        to guide you through your application.
+        {AgreeText}
       </label>
     </div>
   );

@@ -6,6 +6,7 @@ function AnimatedText() {
   const arrowRef = useRef(null);
   const [listenScroll, setListenScroll] = useState(false);
   const [arrowWasFullyVisible, setArrowWasFullyVisible] = useState(false);
+  const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
     const observerCallback = (entries) => {
@@ -25,6 +26,51 @@ function AnimatedText() {
       if (arrowRef.current) observer.unobserve(arrowRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    let intervalId = null;
+  
+    const startOpacityInterval = (adjustOpacity) => {
+      let iterations = 0;
+      const maxIterations = 20; 
+  
+      intervalId = setInterval(() => {
+        adjustOpacity();
+        iterations++;
+        
+        if (iterations >= maxIterations) {
+          clearInterval(intervalId);
+        }
+      }, 50);
+    };
+  
+    if (arrowWasFullyVisible) {
+      startOpacityInterval(() => setOpacity(prev => {
+        const newOpacity = Math.min(1, prev + 0.1);
+        if (newOpacity === 1) {
+          clearInterval(intervalId);
+        }
+        return newOpacity;
+      }));
+    } else {
+      // Decrease opacity
+      startOpacityInterval(() => setOpacity(prev => {
+        const newOpacity = Math.max(0, prev - 0.1);
+        if (newOpacity === 0) {
+          clearInterval(intervalId);
+        }
+        return newOpacity;
+      }));
+    }
+  
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [arrowWasFullyVisible]);
+  
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +107,6 @@ function AnimatedText() {
           <img src="https://www.uni.cards/images/down_arrow.svg" alt="arrow" />
         </div>
       </div>
-      {arrowWasFullyVisible && (
         <FixedBottom style={{
           position: 'fixed',
           left: 0, 
@@ -72,8 +117,10 @@ function AnimatedText() {
           backgroundColor: 'rgb(245, 245, 245)',
           boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
           textAlign: 'center',
-        }}/>
-      )}
+          opacity
+        }}
+        />
+      
     </>
   );
 }
