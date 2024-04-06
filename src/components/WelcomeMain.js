@@ -2,6 +2,7 @@ import React from 'react'
 import {useMobile} from '../MobileContext';
 import WelcomeLabel from './WelcomeLabel';
 import WelcomeHighlight from './WelcomeHighlight';
+import PhoneNumberInput from './PhoneNumberInput';
 function WelcomeMain() {
   const {mobile}=useMobile();
   return (
@@ -40,10 +41,11 @@ function WelcomeMain() {
       }}>
       <WelcomeLabel/>
           <WelcomeHighlight/>
+          <PhoneNumberInput type="header"/>
         </div>
      <img
             src="https://www.uni.cards/images/nx-wave/nx_wave_hero.png"
-            style={{ width: "400px", height: "400px"}}
+            style={{ width: "350px", height: "350px"}}
           />
 
           </div>
