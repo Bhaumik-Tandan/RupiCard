@@ -1,0 +1,9 @@
+.MobilePhoneInput {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 110%);
+    width: 100%;
+    padding: 30px 0px;
+}
