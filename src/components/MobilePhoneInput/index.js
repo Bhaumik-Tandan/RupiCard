@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useMobile } from '../../MobileContext';
 import AgreeText from '../../constants/AgreeText';
 
 function MobilePhoneInput() {
   const { mobile } = useMobile();
+  const [boxesVisible, setBoxesVisible] = useState(false);
   return mobile ? (
     <div
       style={{
@@ -23,7 +24,7 @@ function MobilePhoneInput() {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        <div style={{
+      { <div style={{
           position: 'relative',
           top: '2vh',
           width: `calc(88vw)`,
@@ -37,7 +38,11 @@ function MobilePhoneInput() {
           boxSizing: 'border-box',
           zIndex: '-1',
           borderRadius: '10px',
-          paddingBottom: '1rem'
+          paddingBottom: '1rem',
+          transform: boxesVisible ? 'scaleY(1)' : 'scaleY(0)',
+          transformOrigin: 'bottom',
+          transition: 'transform 0.2s ease-out',
+          overflow: 'hidden',
         }}>
           <input
             type="text"
@@ -54,7 +59,7 @@ function MobilePhoneInput() {
               paddingLeft: "5px",
             }}
           />
-        </div>
+        </div>}
         <div style={{
           display: 'flex',
           justifyContent: "space-between",
@@ -66,11 +71,15 @@ function MobilePhoneInput() {
           width: '85vw',
           height: '40px', // Explicit height set to match the input box
           alignItems: 'center', // This ensures vertical alignment of the button contents
-        }}>
+        }}
+        onClick={() => setBoxesVisible((prev)=>!prev)}
+        >
           Apply now
           <img src="https://www.uni.cards/images/right_arrow.svg" alt="right arrow" style={{height: '20px'}} />
         </div>
       </div>
+      { 
+      boxesVisible &&
       <label
         style={{
           display: "flex",
@@ -90,6 +99,7 @@ function MobilePhoneInput() {
         />
         {AgreeText}
       </label>
+}
     </div>
   ) : null; // Corrected return for falsy mobile
 }
