@@ -31,7 +31,6 @@ function PhoneNumberInput({ type }) {
         display: "flex",
         flexDirection: type == "header" ? "column" : "row",
         fontFamily: "Matter, sans-serif",
-        background: type==="header"?"":'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 110%)',
       }}
     >
       <div

@@ -6,7 +6,6 @@ function App() {
     <MobileProvider>
       <Welcome/>
       <AnimatedText/>
-      <Welcome/>
     </MobileProvider>
   );
 }

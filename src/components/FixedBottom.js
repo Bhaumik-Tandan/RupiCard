@@ -1,15 +1,9 @@
 import React from 'react'
 import PhoneNumberInput from './PhoneNumberInput';
 
-function FixedBottom() {
+function FixedBottom({style}) {
   return (
-    <div style={{
-      width: '100%',
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      backgroundColor: 'rgb(245, 245, 245)'
-    }}>
+    <div style={style}>
         <PhoneNumberInput/>
     </div>
   )
