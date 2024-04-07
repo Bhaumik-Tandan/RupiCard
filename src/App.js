@@ -5,6 +5,7 @@ import Welcome from "./pages/Welcome";
 import CashbackText from "./pages/CashbackText";
 import UnitStoreText from "./pages/UnitStoreText";
 import ForexText from "./pages/ForexText";
+import JoiningFreeText from "./pages/JoiningFreeText";
 function App() {
   return (
     <MobileProvider>
@@ -14,6 +15,7 @@ function App() {
       <CashbackText/>
       <UnitStoreText/>
       <ForexText/>
+      <JoiningFreeText/>
     </MobileProvider>
   );
 }
