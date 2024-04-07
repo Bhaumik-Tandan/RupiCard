@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin:100px;
+  align-items: center;
+}
+
+.card-content{
+  font-family: "Matter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  color: #9ea7ae;
+}
+
+.card-content>strong{
+  color: black;
+    font-weight: 500;
+}
+.card-image{
+  width: 400px;
+  height: 400px;
+}
+ 
+ @media (max-width: 768px) {
+    .card {
+      flex-direction: column;
+      font-size: 28px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .card {
+      flex-direction: row-reverse;
+      font-size: 35px;
+      gap:250px;
+    }
+  }
+  
