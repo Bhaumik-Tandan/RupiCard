@@ -91,8 +91,8 @@ function AnimatedText() {
         }
         return newOpacity;
       }));
-    } else {
-      // Decrease opacity
+    } else if (window.scrollY < arrowRef.current.getBoundingClientRect().top)  {
+     
       startOpacityInterval(() => setOpacity(prev => {
         const newOpacity = Math.max(0, prev - 0.1);
         if (newOpacity === 0) {
