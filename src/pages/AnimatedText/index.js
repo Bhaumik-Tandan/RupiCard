@@ -7,6 +7,45 @@ function AnimatedText() {
   const [listenScroll, setListenScroll] = useState(false);
   const [arrowWasFullyVisible, setArrowWasFullyVisible] = useState(false);
   const [opacity, setOpacity] = useState(0);
+  const textRef = useRef(null); // Reference to the animated text container
+  const [isTextVisible, setIsTextVisible] = useState(false);
+
+  useEffect(() => {
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        setIsTextVisible(entry.isIntersecting);
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      threshold: 0.1 // Adjust threshold as needed
+    });
+
+    if (textRef.current) observer.observe(textRef.current);
+
+    return () => {
+      if (textRef.current) observer.unobserve(textRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isTextVisible) {
+      // Once the text is visible, add classes to trigger animations
+      const spans = textRef.current.querySelectorAll('span');
+      spans.forEach((span, index) => {
+        setTimeout(() => {
+          span.classList.add('slide-up');
+        }, 300 * (index + 1)); // Adjust timing as needed
+      });
+      const arrow = textRef.current.querySelector('.arrow-container');
+      if (arrow) {
+        setTimeout(() => {
+          arrow.classList.add('slide-down');
+        }, 300 * (spans.length + 1));
+      }
+    }
+  }, [isTextVisible]);
 
   useEffect(() => {
     const observerCallback = (entries) => {
@@ -99,7 +138,7 @@ function AnimatedText() {
 
   return (
     <>
-      <div className="animated-text">
+      <div className="animated-text" ref={textRef}>
         <span><strong>Earn 1% assured cashback</strong> on your spends. Get <strong>5X</strong> more value than cashback at the Uni Store. Enjoy</span>
         <span>round the clock <strong>Whatsapp support</strong>. And it's</span>
         <span><strong>lifetime free</strong>; no joining fee, no annual charges.</span>
