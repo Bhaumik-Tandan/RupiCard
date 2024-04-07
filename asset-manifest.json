@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/RupiCard/static/css/main.9a028272.css",
+    "main.js": "/RupiCard/static/js/main.0e066dc6.js",
+    "static/media/uni.svg": "/RupiCard/static/media/uni.c3a8ed3aeba399e09a5cd91a42a2e77c.svg",
+    "index.html": "/RupiCard/index.html",
+    "static/media/menu.svg": "/RupiCard/static/media/menu.8f677400cfda7948977f1b23fc22f747.svg",
+    "static/media/cross.svg": "/RupiCard/static/media/cross.d1e2558835d4dee23957b8ede451f970.svg",
+    "static/media/tick.svg": "/RupiCard/static/media/tick.ae604780c297150bc3d59fe6455fd7b9.svg",
+    "static/media/star.svg": "/RupiCard/static/media/star.d850b33bc1fb2cea3f7510cd6ffd7f6b.svg",
+    "static/media/right-arrow.svg": "/RupiCard/static/media/right-arrow.c7ffac6d3688db4eb02806a179f00fe1.svg",
+    "main.9a028272.css.map": "/RupiCard/static/css/main.9a028272.css.map",
+    "main.0e066dc6.js.map": "/RupiCard/static/js/main.0e066dc6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a028272.css",
+    "static/js/main.0e066dc6.js"
+  ]
+}
